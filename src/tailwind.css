@@ -1,3 +1,43 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  background: url("/static/images/bg-mobile.jpg"), #1f2334;
+  background-blend-mode: multiply;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (min-width: 768px) {
+  body {
+    background: url("/static/images/bg.png"), #1f2334;
+    background-blend-mode: multiply;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+svg:hover path {
+  fill: white;
+}
+
+svg:active path {
+  fill: #fb4959;
+}
+
+svg:focus path {
+  fill: #fb4959;
+}
+
+.toggle svg:active path {
+  fill: #6d5ced;
+}
+
+.toggle svg:focus path {
+  fill: #6d5ced;
+}
+
+svg path {
+  transition: all ease 0.3s;
+}
