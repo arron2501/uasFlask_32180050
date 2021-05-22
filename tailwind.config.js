@@ -3,7 +3,11 @@ module.exports = {
   purge: [],
   darkMode: "media", // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ["Poppins", "sans-serif"],
+      },
+    },
   },
   variants: {
     extend: {},
