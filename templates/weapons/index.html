@@ -1,17 +1,12 @@
-{% extends "layout.html" %} {% block content %}
-
-<!-- content -->
-
-<!-- main content -->
+{% extends 'layout.html' %} {% block content %}
 <div class="pt-16">
-  <p class="text-white font-bold text-center md:text-left text-5xl">Agents</p>
-  <!-- agents items -->
+  <p class="text-white font-bold text-center md:text-left text-5xl">Weapons</p>
   <ul
     class="
       flex flex-wrap
       pt-12
       anton
-      text-white text-center text-4xl
+      text-white text-center text-3xl
       justify-center
       md:justify-start
       gap-5
@@ -19,11 +14,44 @@
   >
     <li
       class="
+        w-80
+        h-36
         shadow-2xl
         border-4 border-gray-700
         rounded-lg
-        relative
         transition
+        relative
+        duration-100
+        bg-gradient-to-t
+        from-black
+        overflow-hidden
+        hover:border-indigo-500
+        hover:bg-gradient-to-t
+        hover:from-indigo-500
+      "
+    >
+      <a href="/weapon_details" class="block bg-transparent p-1.5">
+        <img
+          class="transform pt-1 duration-200 hover:scale-105"
+          src="/static/images/odin.png"
+          title="ODIN"
+          alt=""
+        />
+        <span class="absolute pointer-events-none inset-x-0 bottom-2"
+          >ODIN</span
+        >
+      </a>
+    </li>
+
+    <li
+      class="
+        w-80
+        h-36
+        shadow-2xl
+        border-4 border-gray-700
+        rounded-lg
+        transition
+        relative
         duration-100
         bg-gradient-to-t
         from-black
@@ -35,53 +63,26 @@
     >
       <a href="" class="block bg-transparent p-1.5">
         <img
-          class="opacity-70 transform duration-200 hover:scale-105"
-          src="/static/images/jett.png"
-          title="JETT"
+          class="transform pt-1 duration-200 hover:scale-105"
+          src="/static/images/phantom.png"
+          title="phantom"
           alt=""
         />
-        <span class="absolute pointer-events-none inset-x-0 bottom-8"
-          >JETT</span
+        <span class="absolute pointer-events-none inset-x-0 bottom-2"
+          >PHANTOM</span
         >
       </a>
     </li>
 
     <li
       class="
+        w-80
+        h-36
         shadow-2xl
         border-4 border-gray-700
         rounded-lg
-        relative
         transition
-        duration-100
-        bg-gradient-to-t
-        from-black
-        overflow-hidden
-        hover:border-indigo-500
-        hover:bg-gradient-to-t
-        hover:from-indigo-500
-      "
-    >
-      <a href="/agent_details" class="block bg-transparent p-1.5">
-        <img
-          class="opacity-70 transform duration-200 hover:scale-105"
-          src="/static/images/raze.png"
-          title="RAZE"
-          alt=""
-        />
-        <span class="absolute pointer-events-none inset-x-0 bottom-8"
-          >RAZE</span
-        >
-      </a>
-    </li>
-
-    <li
-      class="
-        shadow-2xl
-        border-4 border-gray-700
-        rounded-lg
         relative
-        transition
         duration-100
         bg-gradient-to-t
         from-black
@@ -93,24 +94,26 @@
     >
       <a href="" class="block bg-transparent p-1.5">
         <img
-          class="opacity-70 transform duration-200 hover:scale-105"
-          src="/static/images/breach.png"
-          title="BREACH"
+          class="transform pt-1 duration-200 hover:scale-105"
+          src="/static/images/ghost.png"
+          title="GHOST"
           alt=""
         />
-        <span class="absolute pointer-events-none inset-x-0 bottom-8"
-          >BREACH</span
+        <span class="absolute pointer-events-none inset-x-0 bottom-2"
+          >GHOST</span
         >
       </a>
     </li>
 
     <li
       class="
+        w-80
+        h-36
         shadow-2xl
         border-4 border-gray-700
         rounded-lg
-        relative
         transition
+        relative
         duration-100
         bg-gradient-to-t
         from-black
@@ -122,17 +125,16 @@
     >
       <a href="" class="block bg-transparent p-1.5">
         <img
-          class="opacity-70 transform duration-200 hover:scale-105"
-          src="/static/images/omen.png"
-          title="OMEN"
+          class="transform pt-1 duration-200 hover:scale-105"
+          src="/static/images/operator.png"
+          title="OPERATOR"
           alt=""
         />
-        <span class="absolute pointer-events-none inset-x-0 bottom-8"
-          >OMEN</span
+        <span class="absolute pointer-events-none inset-x-0 bottom-2"
+          >OPERATOR</span
         >
       </a>
     </li>
   </ul>
 </div>
-
 {% endblock content %}

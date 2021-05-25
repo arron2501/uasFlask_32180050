@@ -1,0 +1,208 @@
+{% extends 'layout.html' %}
+<!-- content -->
+{% block content %}
+
+<!-- agent details -->
+<div class="pt-16">
+  <p class="text-white font-bold text-center md:text-left text-5xl">
+    Agent Details
+  </p>
+
+  <div
+    class="pt-12 flex flex-wrap md:flex-nowrap justify-center md:justify-start"
+  >
+    <div
+      class="
+        shadow-2xl
+        border-4 border-gray-700
+        rounded-lg
+        relative
+        transition
+        duration-100
+        bg-gradient-to-t
+        from-black
+        h-full
+        overflow-hidden
+        hover:border-indigo-500
+        hover:bg-gradient-to-t
+        hover:from-indigo-500
+      "
+    >
+      <div class="bg-transparent p-1.5">
+        <img
+          class="opacity-70 transform duration-200 hover:scale-105"
+          src="/static/images/raze.png"
+          title="RAZE"
+          alt=""
+        />
+        <span
+          class="
+            absolute
+            anton
+            pointer-events-none
+            text-white text-center text-4xl
+            inset-x-0
+            bottom-8
+          "
+          >RAZE</span
+        >
+      </div>
+    </div>
+
+    <div class="pt-10 md:pt-0 md:pl-10 md:w-1/2 flex flex-row space-x-4">
+      <img class="w-10 h-10" src="/static/images/duelists.png" alt="" />
+      <div class="space-y-7">
+        <p class="anton text-white text-4xl">DUELISTS</p>
+
+        <div class="text-white space-y-2">
+          <p class="font-semibold">
+            // <span class="underline">Biography</span>
+          </p>
+          <p class="break-words">
+            Raze explodes out of Brazil with her big personality and big guns.
+            With her blunt-force-trauma playstyle, she excels at flushing
+            entrenched enemies and clearing tight spaces with a generous dose of
+            boom.
+          </p>
+        </div>
+
+        <div class="text-white space-y-2">
+          <p class="font-semibold">
+            // <span class="underline">Abilities</span>
+          </p>
+
+          <div
+            class="
+              grid grid-cols-2 grid-rows-2
+              gap-2
+              md:space-y-2
+              md:flex md:flex-col
+              md:gap-0
+            "
+          >
+            <div
+              class="
+                flex flex-row
+                hover:bg-gray-700
+                shadow-lg
+                w-full
+                bg-gray-800
+                rounded-lg
+                p-4
+              "
+            >
+              <img
+                class="w-8 h-8 items-center"
+                src="/static/images/blast_pack.png"
+                alt=""
+              />
+              <div class="pl-3">
+                <p class="text-white font-extrabold text-sm">BLAST PACK</p>
+                <p class="text-gray-400 text-xs">
+                  INSTANTLY throw a Blast Pack that will stick to surfaces.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="
+                flex flex-row
+                hover:bg-gray-700
+                shadow-lg
+                w-full
+                bg-gray-800
+                rounded-lg
+                p-4
+              "
+            >
+              <img
+                class="w-8 h-8 items-center"
+                src="/static/images/blast_pack.png"
+                alt=""
+              />
+              <div class="pl-3">
+                <p class="text-white font-extrabold text-sm">BLAST PACK</p>
+                <p class="text-gray-400 text-xs">
+                  INSTANTLY throw a Blast Pack that will stick to surfaces.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="
+                flex flex-row
+                hover:bg-gray-700
+                shadow-lg
+                w-full
+                bg-gray-800
+                rounded-lg
+                p-4
+              "
+            >
+              <img
+                class="w-8 h-8 items-center"
+                src="/static/images/blast_pack.png"
+                alt=""
+              />
+              <div class="pl-3">
+                <p class="text-white font-extrabold text-sm">BLAST PACK</p>
+                <p class="text-gray-400 text-xs">
+                  INSTANTLY throw a Blast Pack that will stick to surfaces.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="
+                flex flex-row
+                hover:bg-gray-700
+                shadow-lg
+                w-full
+                bg-gray-800
+                rounded-lg
+                p-4
+              "
+            >
+              <img
+                class="w-8 h-8 items-center"
+                src="/static/images/blast_pack.png"
+                alt=""
+              />
+              <div class="pl-3">
+                <p class="text-white font-extrabold text-sm">BLAST PACK</p>
+                <p class="text-gray-400 text-xs">
+                  INSTANTLY throw a Blast Pack that will stick to surfaces.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-white space-y-2">
+          <p class="font-semibold">// <span class="underline">Tags</span></p>
+          <p>Warhead, Ballistic</p>
+        </div>
+
+        <div class="text-indigo-300 font-semibold">
+          <a href="/agents">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 inline-block"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            <span class="align-middle hover:underline">Go back</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

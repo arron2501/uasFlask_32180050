@@ -7,8 +7,13 @@
     <link rel="stylesheet" href="/static/css/styles.css" type="text/css" />
     <link rel="icon" href="/static/images/logo.svg" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    {% block agents_font %} {{ agents_font }} {% endblock %}
-    <title>{% block title %}{{ title }}{% endblock %} | VALORANT Guides</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
+      rel="stylesheet"
+    />
+    <title>
+      {% block title %}{{ title }}{% endblock title %} | VALORANT Guides
+    </title>
   </head>
   <body>
     <div class="relative min-h-screen md:flex">
@@ -134,7 +139,7 @@
                 focus:outline-none
                 text-gray-400
                 transition
-                {% block home_active %}{{ home_active }}{% endblock %}
+                {% block home_active %}{{ home_active }}{% endblock home_active %}
                 hover:text-red-500
                 focus:text-red-500
                 duration-300
@@ -255,11 +260,11 @@
       <main class="p-7 md:ml-24">
         <!-- home menu -->
         <ul
-          class="space-x-7 flex flex-row text-gray-400 {% block home_menu %}{{ home_menu }}{% endblock %}"
+          class="space-x-7 flex flex-row text-center text-gray-400 {% block home_menu %}{{ home_menu }}{% endblock home_menu %}"
         >
           <!-- home -->
           <li
-            class="hover:text-white transition duration-300 {% block homemenu_active %}{{ homemenu_active }}{% endblock %}"
+            class="hover:text-white transition duration-300 {% block homemenu_active %}{{ homemenu_active }}{% endblock homemenu_active %}"
           >
             <a href="/" class="space-x-1 focus:outline-none focus:text-white">
               <svg
@@ -278,7 +283,7 @@
           </li>
           <!-- agents -->
           <li
-            class="hover:text-white transition duration-300 {% block agents_active %}{{ agents_active }}{% endblock %}"
+            class="hover:text-white transition duration-300 {% block agents_active %}{{ agents_active }}{% endblock agents_active %}"
           >
             <a
               href="/agents"
@@ -299,8 +304,13 @@
             </a>
           </li>
           <!-- weapons -->
-          <li class="hover:text-white transition duration-300">
-            <a href="" class="space-x-1.5 focus:outline-none focus:text-white">
+          <li
+            class="hover:text-white transition duration-300 {% block weapons_active %}{{ weapons_active }}{% endblock weapons_active %}"
+          >
+            <a
+              href="/weapons"
+              class="space-x-1.5 focus:outline-none focus:text-white"
+            >
               <svg
                 class="h-5 w-5 inline-block"
                 viewBox="0 0 18 14"
@@ -328,8 +338,13 @@
             </a>
           </li>
           <!-- maps -->
-          <li class="hover:text-white transition duration-300">
-            <a href="" class="space-x-1 focus:outline-none focus:text-white">
+          <li
+            class="hover:text-white transition duration-300 {% block maps_active %}{{ maps_active }}{% endblock maps_active %}"
+          >
+            <a
+              href="/maps"
+              class="space-x-1 focus:outline-none focus:text-white"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-5 w-5 inline-block"
@@ -348,7 +363,7 @@
           </li>
         </ul>
 
-        {% block content %}{% endblock %}
+        {% block content %}{% endblock content %}
       </main>
     </div>
 
