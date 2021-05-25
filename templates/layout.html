@@ -160,11 +160,12 @@
             <!-- account -->
             <li>
               <a
-                href="#"
+                href="/accounts"
                 class="
                   focus:outline-none
                   text-gray-400
                   transition
+                  {% block accounts_active %}{{ accounts_active }}{% endblock accounts_active %}
                   hover:text-red-500
                   focus:text-red-500
                   duration-300
@@ -206,11 +207,12 @@
             <!-- news -->
             <li>
               <a
-                href="#"
+                href=""
                 class="
                   focus:outline-none
                   text-gray-400
                   transition
+                  {% block news_active %}{{ news_active }}{% endblock news_active %}
                   hover:text-red-500
                   focus:text-red-500
                   duration-300
@@ -236,6 +238,7 @@
                   focus:outline-none
                   text-gray-400
                   transition
+                  {% block darkmode_active %}{{ darkmode_active }}{% endblock darkmode_active %}
                   hover:text-indigo-600
                   focus:text-indigo-600
                   duration-300

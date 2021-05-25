@@ -1,0 +1,105 @@
+{% extends 'layout.html' %} {% block content %}
+
+<div class="flex flex-col">
+  <p class="text-white font-bold text-center md:text-left text-3xl">
+    Account Details
+  </p>
+
+  <div class="pt-12 space-y-10 flex flex-col items-center md:items-start">
+    <div class="text-white space-y-2">
+      <p class="font-semibold">Name</p>
+      <input
+        class="
+          px-4
+          md:w-96
+          bg-gray-800
+          hover:bg-gray-700
+          rounded-lg
+          border-2 border-transparent
+          hover:border-indigo-500
+          truncate
+        "
+        type="text"
+        name="name"
+        id="name"
+        value="Rivaltino Arron"
+        readonly
+      />
+    </div>
+
+    <div class="text-white space-y-2">
+      <p class="font-semibold">Email</p>
+      <input
+        class="
+          px-4
+          md:w-96
+          bg-gray-800
+          hover:bg-gray-700
+          rounded-lg
+          border-2 border-transparent
+          hover:border-indigo-500
+        "
+        type="email"
+        name="name"
+        id="name"
+        value="arron2501@gmail.com"
+        readonly
+      />
+    </div>
+
+    <div class="text-white space-y-2">
+      <p class="font-semibold">Member Since</p>
+      <input
+        class="
+          px-4
+          md:w-96
+          bg-gray-800
+          hover:bg-gray-700
+          rounded-lg
+          border-2 border-transparent
+          hover:border-indigo-500
+        "
+        type="text"
+        name="name"
+        id="name"
+        value="20 May 2021"
+        readonly
+      />
+    </div>
+
+    <div
+      class="
+        flex flex-col
+        text-gray-500 text-center
+        md:text-left
+        text-sm
+        font-semibold
+      "
+    >
+      <a href="/change_password" class="hover:underline">Change password</a>
+      <a href="/contact_us" class="hover:underline">Need help?</a>
+    </div>
+
+    <div class="text-red-500 font-semibold">
+      <a href="">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6 inline-block"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+          />
+        </svg>
+        <span class="align-middle hover:underline">Logout</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
