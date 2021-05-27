@@ -20,6 +20,7 @@
       <!-- mobile -->
       <div
         class="
+          {% block mobile_sidenav %}{{ mobile_sidenav }}{% endblock mobile_sidenav %}
           text-gray-100
           flex
           justify-between
@@ -85,6 +86,7 @@
       <!-- sidebar -->
       <div
         class="
+          {% block sidenav %}{{ sidenav }}{% endblock sidenav %}
           sidebar
           w-24
           flex flex-col
@@ -132,12 +134,11 @@
           <!-- main menu -->
           <ul class="space-y-8">
             <!-- home -->
-            <li>
+            <li class="text-gray-400">
               <a
                 href="/"
                 class="
                 focus:outline-none
-                text-gray-400
                 transition
                 {% block home_active %}{{ home_active }}{% endblock home_active %}
                 hover:text-red-500
@@ -158,12 +159,11 @@
               </a>
             </li>
             <!-- account -->
-            <li>
+            <li class="text-gray-400">
               <a
                 href="/accounts"
                 class="
                   focus:outline-none
-                  text-gray-400
                   transition
                   {% block accounts_active %}{{ accounts_active }}{% endblock accounts_active %}
                   hover:text-red-500
@@ -205,12 +205,11 @@
               </i>
             </li>
             <!-- news -->
-            <li>
+            <li class="text-gray-400">
               <a
                 href=""
                 class="
                   focus:outline-none
-                  text-gray-400
                   transition
                   {% block news_active %}{{ news_active }}{% endblock news_active %}
                   hover:text-red-500
@@ -231,12 +230,11 @@
               </a>
             </li>
             <!-- toggle dark mode -->
-            <li class="fixed bottom-0 pb-7">
+            <li class="fixed bottom-0 pb-7 text-gray-400">
               <a
                 href="#"
                 class="
                   focus:outline-none
-                  text-gray-400
                   transition
                   {% block darkmode_active %}{{ darkmode_active }}{% endblock darkmode_active %}
                   hover:text-indigo-600
@@ -260,10 +258,10 @@
       </div>
 
       <!-- main content -->
-      <main class="p-7 md:ml-24">
+      <main class="md:ml-24 flex-1">
         <!-- home menu -->
         <ul
-          class="space-x-7 flex flex-row text-center text-gray-400 {% block home_menu %}{{ home_menu }}{% endblock home_menu %}"
+          class="p-8 space-x-7 flex flex-row text-center text-gray-400 {% block home_menu %}{{ home_menu }}{% endblock home_menu %}"
         >
           <!-- home -->
           <li

@@ -1,0 +1,375 @@
+{% extends 'layout.html' %} {% block content %}
+<div class="md:mr-24">
+  <div class="flex flex-col pt-12 p-7">
+    <p class="text-white font-bold text-center md:text-left text-3xl">
+      Edit Agent
+    </p>
+
+    <div class="pt-12 flex flex-col items-center md:items-start">
+      <form action="" method="post" class="space-y-10">
+        <div class="text-white space-y-2">
+          <p class="font-semibold">Image</p>
+
+          <input type="file" name="agentimage" id="agentimage" />
+        </div>
+
+        <div class="text-white space-y-2">
+          <p class="font-semibold">Name</p>
+          <input
+            class="
+              px-4
+              w-full
+              md:w-96
+              bg-gray-800
+              hover:bg-gray-700
+              rounded-lg
+              border-2 border-transparent
+              hover:border-indigo-500
+            "
+            type="text"
+            name="agentname"
+            id="agentname"
+            placeholder="Agent Name"
+            value=""
+          />
+        </div>
+
+        <div class="text-white space-y-2">
+          <p class="font-semibold">Role</p>
+          <!-- <select
+            class="
+              px-4
+              w-full
+              md:w-96
+              bg-gray-800
+              hover:bg-gray-700
+              rounded-lg
+              border-2 border-transparent
+              hover:border-indigo-500
+            "
+            name="agentrole"
+            id="agentrole"
+          >
+            <option value="">Sentinels</option>
+            <option value="">Controllers</option>
+            <option value="">Initiators</option>
+            <option value="">Duelists</option>
+          </select> -->
+          <div
+            class="
+              flex flex-col
+              md:flex-row
+              text-sm
+              space-y-2
+              md:space-y-0 md:space-x-3
+            "
+          >
+            <div>
+              <input
+                type="radio"
+                name="agentrole"
+                id="sentinels"
+                value="sentinels"
+              />
+              <label class="align-middle" for="sentinels">Sentinels</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="agentrole"
+                id="controllers"
+                value="controllers"
+              />
+              <label class="align-middle" for="controllers">Controllers</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="agentrole"
+                id="initiators"
+                value="initiators"
+              />
+              <label class="align-middle" for="initiators">Initiators</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="agentrole"
+                id="duelists"
+                value="duelists"
+              />
+              <label class="align-middle" for="duelists">Duelists</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-white space-y-2">
+          <p class="font-semibold">Bio</p>
+          <input
+            class="
+              px-4
+              w-full
+              md:w-96
+              bg-gray-800
+              hover:bg-gray-700
+              rounded-lg
+              border-2 border-transparent
+              hover:border-indigo-500
+            "
+            type="text"
+            name="agentbio"
+            id="agentbio"
+            placeholder="Agent Bio"
+            value=""
+          />
+        </div>
+
+        <div class="text-white space-y-2">
+          <p class="font-semibold">A1</p>
+          <input
+            class="
+              px-4
+              w-full
+              md:w-96
+              bg-gray-800
+              hover:bg-gray-700
+              rounded-lg
+              border-2 border-transparent
+              hover:border-indigo-500
+            "
+            type="text"
+            name="a1"
+            id="a1"
+            placeholder="Ability 1"
+            value=""
+          />
+        </div>
+
+        <div class="text-white space-y-2">
+          <p class="font-semibold">IA1</p>
+          <input type="file" name="ia1" id="ia1" />
+        </div>
+
+        <div class="text-white space-y-2">
+          <p class="font-semibold">DA1</p>
+          <input
+            class="
+              px-4
+              w-full
+              md:w-96
+              bg-gray-800
+              hover:bg-gray-700
+              rounded-lg
+              border-2 border-transparent
+              hover:border-indigo-500
+            "
+            type="text"
+            name="da1"
+            id="da1"
+            placeholder="Ability 1 Description"
+            value=""
+          />
+        </div>
+
+        <div class="text-white space-y-2">
+          <p class="font-semibold">A2</p>
+          <input
+            class="
+              px-4
+              w-full
+              md:w-96
+              bg-gray-800
+              hover:bg-gray-700
+              rounded-lg
+              border-2 border-transparent
+              hover:border-indigo-500
+            "
+            type="text"
+            name="a2"
+            id="a2"
+            placeholder="Ability 2"
+            value=""
+          />
+        </div>
+
+        <div class="text-white space-y-2">
+          <p class="font-semibold">IA2</p>
+          <input type="file" name="ia2" id="ia2" />
+        </div>
+
+        <div class="text-white space-y-2">
+          <p class="font-semibold">DA2</p>
+          <input
+            class="
+              px-4
+              w-full
+              md:w-96
+              bg-gray-800
+              hover:bg-gray-700
+              rounded-lg
+              border-2 border-transparent
+              hover:border-indigo-500
+            "
+            type="text"
+            name="da2"
+            id="da2"
+            placeholder="Ability 2 Description"
+            value=""
+          />
+        </div>
+
+        <div class="text-white space-y-2">
+          <p class="font-semibold">A3</p>
+          <input
+            class="
+              px-4
+              w-full
+              md:w-96
+              bg-gray-800
+              hover:bg-gray-700
+              rounded-lg
+              border-2 border-transparent
+              hover:border-indigo-500
+            "
+            type="text"
+            name="a3"
+            id="a3"
+            placeholder="Ability 3"
+            value=""
+          />
+        </div>
+
+        <div class="text-white space-y-2">
+          <p class="font-semibold">IA3</p>
+          <input type="file" name="ia3" id="ia3" />
+        </div>
+
+        <div class="text-white space-y-2">
+          <p class="font-semibold">DA3</p>
+          <input
+            class="
+              px-4
+              w-full
+              md:w-96
+              bg-gray-800
+              hover:bg-gray-700
+              rounded-lg
+              border-2 border-transparent
+              hover:border-indigo-500
+            "
+            type="text"
+            name="da3"
+            id="da3"
+            placeholder="Ability 3 Description"
+            value=""
+          />
+        </div>
+
+        <div class="text-white space-y-2">
+          <p class="font-semibold">A4</p>
+          <input
+            class="
+              px-4
+              w-full
+              md:w-96
+              bg-gray-800
+              hover:bg-gray-700
+              rounded-lg
+              border-2 border-transparent
+              hover:border-indigo-500
+            "
+            type="text"
+            name="a4"
+            id="a4"
+            placeholder="Ability 4"
+            value=""
+          />
+        </div>
+
+        <div class="text-white space-y-2">
+          <p class="font-semibold">IA4</p>
+          <input type="file" name="ia4" id="ia4" />
+        </div>
+
+        <div class="text-white space-y-2">
+          <p class="font-semibold">DA4</p>
+          <input
+            class="
+              px-4
+              w-full
+              md:w-96
+              bg-gray-800
+              hover:bg-gray-700
+              rounded-lg
+              border-2 border-transparent
+              hover:border-indigo-500
+            "
+            type="text"
+            name="da4"
+            id="da4"
+            placeholder="Ability 4 Description"
+            value=""
+          />
+        </div>
+
+        <div class="text-white space-y-2">
+          <p class="font-semibold">Tags</p>
+          <input
+            class="
+              px-4
+              w-full
+              md:w-96
+              bg-gray-800
+              hover:bg-gray-700
+              rounded-lg
+              border-2 border-transparent
+              hover:border-indigo-500
+            "
+            type="text"
+            name="tags"
+            id="tags"
+            placeholder="Agent Tags"
+            value=""
+          />
+        </div>
+
+        <div class="text-center md:text-right">
+          <button type="submit" class="text-indigo-500 hover:text-indigo-700">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-16 w-16"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </button>
+        </div>
+      </form>
+
+      <div class="text-indigo-300 pt-16 font-semibold">
+        <a href="/manage_agents">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 inline-block"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          <span class="align-middle hover:underline">Go back</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

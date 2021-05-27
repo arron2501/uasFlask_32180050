@@ -1,0 +1,91 @@
+{% extends 'layout.html' %} {% block content %}
+<div class="md:mr-24">
+  <div class="flex flex-col h-screen justify-center items-center space-y-12">
+    <p class="text-white font-bold text-center text-3xl">Welcome, Admin!</p>
+    <!-- if not logged in, show this button -->
+    <div class="flex flex-col text-white text-center font-semibold space-y-4">
+      <a href="/login">
+        <div
+          class="
+            px-12
+            py-2
+            bg-gray-800
+            rounded-lg
+            border-4 border-transparent
+            hover:bg-gray-700
+          "
+        >
+          Login
+        </div>
+      </a>
+      <a href="/register_admin">
+        <div
+          class="
+            px-12
+            py-2
+            bg-indigo-500
+            rounded-lg
+            border-4 border-transparent
+            hover:bg-indigo-400
+          "
+        >
+          Register Admin
+        </div>
+      </a>
+    </div>
+
+    <!-- if logged in, show this button -->
+    <div class="text-white text-center font-semibold">
+      <div class="grid md:grid-cols-2 md:grid-rows-2 gap-4">
+        <div>
+          <a href="/manage_agents">
+            <div class="px-12 py-3 bg-gray-800 rounded-lg hover:bg-gray-700">
+              Agents
+            </div>
+          </a>
+        </div>
+        <div>
+          <a href="/manage_weapons">
+            <div class="px-12 py-3 bg-gray-800 rounded-lg hover:bg-gray-700">
+              Weapons
+            </div>
+          </a>
+        </div>
+        <div>
+          <a href="/manage_maps">
+            <div class="px-12 py-3 bg-gray-800 rounded-lg hover:bg-gray-700">
+              Maps
+            </div>
+          </a>
+        </div>
+        <div>
+          <a href="/manage_news">
+            <div class="px-12 py-3 bg-gray-800 rounded-lg hover:bg-gray-700">
+              News
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="grid mt-12 md:grid-cols-2 md:grid-rows-1 gap-4">
+        <div>
+          <a href="/">
+            <div
+              class="px-12 py-3 bg-indigo-500 rounded-lg hover:bg-indigo-400"
+            >
+              Main Page
+            </div>
+          </a>
+        </div>
+        <div>
+          <a href="/logout">
+            <div class="px-12 py-3 bg-red-500 rounded-lg hover:bg-red-400">
+              Logout
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,219 @@
+{% extends 'layout.html' %} {% block content %}
+<div class="md:mr-24">
+  <div class="flex flex-col pt-12 p-7 space-y-16">
+    <div
+      class="
+        flex flex-col
+        md:flex-row
+        justify-center
+        md:justify-between
+        space-y-7
+        md:space-y-0
+      "
+    >
+      <div class="flex flex-col space-y-7">
+        <p class="text-white font-bold text-center md:text-left text-3xl">
+          Manage Weapons
+        </p>
+
+        <div class="flex justify-center md:justify-start">
+          <div class="text-white text-center font-semibold">
+            <a href="/add_weapon">
+              <div
+                class="
+                  py-3
+                  pl-7
+                  pr-9
+                  bg-indigo-500
+                  rounded-lg
+                  hover:bg-indigo-400
+                "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-7 w-7 inline-block"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                <span class="align-middle">New Weapon</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="text-indigo-300 font-semibold">
+          <a href="/admin">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 inline-block"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            <span class="align-middle hover:underline">Go back</span>
+          </a>
+        </div>
+      </div>
+      <div class="text-white text-center md:text-left font-semibold">
+        <p class="text-indigo-300 font-extrabold underline">Notes :</p>
+        <p>PFM = Primary Fire Mode</p>
+        <p>PFR = Primary Fire Rate</p>
+        <p>AFR = Alt Fire Rate</p>
+        <p>WP = Wall Penetration</p>
+      </div>
+    </div>
+
+    <!-- This example requires Tailwind CSS v2.0+ -->
+    <div class="flex flex-col">
+      <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+          <div
+            class="
+              shadow
+              overflow-hidden
+              border-b border-gray-200
+              sm:rounded-lg
+            "
+          >
+            <table class="min-w-full divide-y divide-gray-200">
+              <thead class="bg-gray-50">
+                <tr>
+                  <th
+                    scope="col"
+                    class="
+                      px-6
+                      py-3
+                      text-left text-xs
+                      font-medium
+                      text-gray-500
+                      uppercase
+                      tracking-wider
+                    "
+                  >
+                    Weapon
+                  </th>
+                  <th
+                    scope="col"
+                    class="
+                      px-6
+                      py-3
+                      text-left text-xs
+                      font-medium
+                      text-gray-500
+                      uppercase
+                      tracking-wider
+                    "
+                  >
+                    Category
+                  </th>
+                  <th
+                    scope="col"
+                    class="
+                      px-6
+                      py-3
+                      text-left text-xs
+                      font-medium
+                      text-gray-500
+                      uppercase
+                      tracking-wider
+                    "
+                  >
+                    Magazine
+                  </th>
+                  <th
+                    scope="col"
+                    class="
+                      px-6
+                      py-3
+                      text-left text-xs
+                      font-medium
+                      text-gray-500
+                      uppercase
+                      tracking-wider
+                    "
+                  >
+                    Damage
+                  </th>
+                  <th scope="col" class="relative px-6 py-3">
+                    <span class="sr-only">Edit</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="bg-white divide-y divide-gray-200">
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="flex items-center">
+                      <div class="flex-shrink-0 h-12 w-28">
+                        <img
+                          class="h-12 w-28 rounded-md shadow-lg"
+                          src="/static/images/odin.png"
+                          alt=""
+                        />
+                      </div>
+                      <div class="ml-4">
+                        <div class="text-sm font-medium text-gray-900">
+                          ODIN
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span
+                      class="
+                        px-2
+                        inline-flex
+                        text-xs
+                        leading-5
+                        font-semibold
+                        rounded-full
+                        bg-green-100
+                        text-green-800
+                      "
+                    >
+                      Heavy
+                    </span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    100
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    Admin
+                  </td>
+                  <td
+                    class="
+                      px-6
+                      py-4
+                      whitespace-nowrap
+                      text-right text-sm
+                      font-medium
+                    "
+                  >
+                    <a
+                      href="/edit_weapon"
+                      class="text-indigo-600 hover:text-indigo-900"
+                      >Edit</a
+                    >
+                  </td>
+                </tr>
+
+                <!-- More people... -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
