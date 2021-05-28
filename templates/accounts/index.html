@@ -1,5 +1,4 @@
 {% extends 'layout.html' %} {% block content %}
-
 <div class="flex flex-col p-7">
   <p class="text-white font-bold text-center md:text-left text-3xl">
     Account Details
@@ -21,7 +20,7 @@
         type="text"
         name="name"
         id="name"
-        value="Rivaltino Arron"
+        value="{{ session.name }}"
         readonly
       />
     </div>
@@ -41,7 +40,7 @@
         type="email"
         name="email"
         id="email"
-        value="arron2501@gmail.com"
+        value="{{ session.email }}"
         readonly
       />
     </div>
@@ -61,7 +60,7 @@
         type="text"
         name="joined"
         id="joined"
-        value="20 May 2021"
+        value="{{ session.created_at }}"
         readonly
       />
     </div>
@@ -80,7 +79,7 @@
     </div>
 
     <div class="text-red-500 font-semibold">
-      <a href="">
+      <a href="/logout">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="h-6 w-6 inline-block"
@@ -100,5 +99,4 @@
     </div>
   </div>
 </div>
-
 {% endblock content %}

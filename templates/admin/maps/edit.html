@@ -1,22 +1,35 @@
 {% extends 'layout.html' %} {% block content %}
 <div class="md:mr-24">
   <div class="flex flex-col pt-12 p-7">
+    <!-- prettier-ignore -->
+    <div>
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            <p class="text-center text-indigo-400">{{ message }}</p>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+    </div>
     <p class="text-white font-bold text-center md:text-left text-3xl">
       Edit Maps
     </p>
 
     <div class="pt-12 flex flex-col items-center md:items-start">
-      <form action="" method="post" class="space-y-10">
+      <form
+        action="/edit_map"
+        method="post"
+        enctype="multipart/form-data"
+        class="space-y-10"
+      >
         <div class="text-white space-y-2">
           <p class="font-semibold">Splash</p>
-
-          <input type="file" name="mapsplash" id="mapsplash" />
+          <input type="file" name="mapsplash" id="mapsplash" required />
         </div>
 
         <div class="text-white space-y-2">
           <p class="font-semibold">Display</p>
-
-          <input type="file" name="mapdisplay" id="mapdisplay" />
+          <input type="file" name="mapdisplay" id="mapdisplay" required />
         </div>
 
         <div class="text-white space-y-2">
@@ -36,7 +49,7 @@
             name="mapname"
             id="mapname"
             placeholder="Map Name"
-            value=""
+            required
           />
         </div>
 
@@ -57,7 +70,7 @@
             name="mapcoordinate"
             id="mapcoordinate"
             placeholder="Map Coordinate"
-            value=""
+            required
           />
         </div>
 
@@ -99,5 +112,4 @@
     </div>
   </div>
 </div>
-
 {% endblock content %}

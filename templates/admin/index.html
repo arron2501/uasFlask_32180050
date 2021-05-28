@@ -3,37 +3,7 @@
   <div class="flex flex-col h-screen justify-center items-center space-y-12">
     <p class="text-white font-bold text-center text-3xl">Welcome, Admin!</p>
     <!-- if not logged in, show this button -->
-    <div class="flex flex-col text-white text-center font-semibold space-y-4">
-      <a href="/login">
-        <div
-          class="
-            px-12
-            py-2
-            bg-gray-800
-            rounded-lg
-            border-4 border-transparent
-            hover:bg-gray-700
-          "
-        >
-          Login
-        </div>
-      </a>
-      <a href="/register_admin">
-        <div
-          class="
-            px-12
-            py-2
-            bg-indigo-500
-            rounded-lg
-            border-4 border-transparent
-            hover:bg-indigo-400
-          "
-        >
-          Register Admin
-        </div>
-      </a>
-    </div>
-
+    {% if session['loggedin'] == True and session.get('role_id') == 0 %}
     <!-- if logged in, show this button -->
     <div class="text-white text-center font-semibold">
       <div class="grid md:grid-cols-2 md:grid-rows-2 gap-4">
@@ -85,7 +55,38 @@
         </div>
       </div>
     </div>
+    {% else %}
+    <div class="flex flex-col text-white text-center font-semibold space-y-4">
+      <a href="/login">
+        <div
+          class="
+            px-12
+            py-2
+            bg-gray-800
+            rounded-lg
+            border-4 border-transparent
+            hover:bg-gray-700
+          "
+        >
+          Login
+        </div>
+      </a>
+      <a href="/register_admin">
+        <div
+          class="
+            px-12
+            py-2
+            bg-indigo-500
+            rounded-lg
+            border-4 border-transparent
+            hover:bg-indigo-400
+          "
+        >
+          Register Admin
+        </div>
+      </a>
+    </div>
+    {% endif %}
   </div>
 </div>
-
 {% endblock content %}

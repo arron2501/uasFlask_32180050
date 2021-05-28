@@ -1,2 +1,18 @@
-{% extends "layout.html" %}
-<div class="p-7"></div>
+{% extends "layout.html" %} {% block content %}
+<div class="p-7 space-y-3 text-center md:text-left">
+  <div class="flex flex-col space-y-1 md:space-y-0 md:flex-row">
+    <div>
+      <p class="text-white text-4xl">Welcome!</p>
+    </div>
+    <div>
+      <p class="text-4xl">
+        &nbsp;<strong class="text-indigo-400">{{ session.name }}</strong>
+      </p>
+    </div>
+  </div>
+
+  <div>
+    <p class="text-white text-xl">You can now browse the game info</p>
+  </div>
+</div>
+{% endblock content %}

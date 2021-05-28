@@ -1,9 +1,20 @@
 {% extends 'layout.html' %} {% block content %}
 <div class="md:mr-24">
   <div class="flex flex-col h-screen justify-center items-center space-y-12">
+    <!-- prettier-ignore -->
+    <div>
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            <p class="text-center text-green-500">{{ message }}</p>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+    </div>
+
     <p class="text-white font-bold text-center text-3xl">Sign In</p>
 
-    <form action="" method="post" class="space-y-7">
+    <form action="/login" method="post" class="space-y-7">
       <div class="text-white space-y-2">
         <p class="font-semibold">Email</p>
         <input
@@ -21,7 +32,6 @@
           name="email"
           id="email"
           placeholder="Email address"
-          value=""
         />
       </div>
       <div class="text-white space-y-2">
@@ -41,7 +51,6 @@
           name="password"
           id="password"
           placeholder="Enter password"
-          value=""
         />
       </div>
       <div
@@ -68,5 +77,4 @@
     </form>
   </div>
 </div>
-
 {% endblock content %}
