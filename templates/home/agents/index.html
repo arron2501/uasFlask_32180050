@@ -14,6 +14,7 @@
       gap-5
     "
   >
+    {% for row in agent_data %}
     <li
       class="
         shadow-2xl
@@ -30,105 +31,19 @@
         hover:from-indigo-500
       "
     >
-      <a href="" class="block bg-transparent p-1.5">
+      <a href="/agent_details/{{ row.id }}" class="block bg-transparent p-1.5">
         <img
           class="opacity-70 transform duration-200 hover:scale-105"
-          src="/static/images/jett.png"
-          title="JETT"
+          src="/static/images/{{ row.img }}"
+          title="{{ row.name }}"
           alt=""
         />
-        <span class="absolute pointer-events-none inset-x-0 bottom-8"
-          >JETT</span
+        <span class="absolute uppercase pointer-events-none inset-x-0 bottom-8"
+          >{{ row.name }}</span
         >
       </a>
     </li>
-
-    <li
-      class="
-        shadow-2xl
-        border-4 border-gray-700
-        rounded-lg
-        relative
-        transition
-        duration-100
-        bg-gradient-to-t
-        from-black
-        overflow-hidden
-        hover:border-indigo-500
-        hover:bg-gradient-to-t
-        hover:from-indigo-500
-      "
-    >
-      <a href="/agent_details" class="block bg-transparent p-1.5">
-        <img
-          class="opacity-70 transform duration-200 hover:scale-105"
-          src="/static/images/raze.png"
-          title="RAZE"
-          alt=""
-        />
-        <span class="absolute pointer-events-none inset-x-0 bottom-8"
-          >RAZE</span
-        >
-      </a>
-    </li>
-
-    <li
-      class="
-        shadow-2xl
-        border-4 border-gray-700
-        rounded-lg
-        relative
-        transition
-        duration-100
-        bg-gradient-to-t
-        from-black
-        overflow-hidden
-        hover:border-indigo-500
-        hover:bg-gradient-to-t
-        hover:from-indigo-500
-      "
-    >
-      <a href="" class="block bg-transparent p-1.5">
-        <img
-          class="opacity-70 transform duration-200 hover:scale-105"
-          src="/static/images/breach.png"
-          title="BREACH"
-          alt=""
-        />
-        <span class="absolute pointer-events-none inset-x-0 bottom-8"
-          >BREACH</span
-        >
-      </a>
-    </li>
-
-    <li
-      class="
-        shadow-2xl
-        border-4 border-gray-700
-        rounded-lg
-        relative
-        transition
-        duration-100
-        bg-gradient-to-t
-        from-black
-        overflow-hidden
-        hover:border-indigo-500
-        hover:bg-gradient-to-t
-        hover:from-indigo-500
-      "
-    >
-      <a href="" class="block bg-transparent p-1.5">
-        <img
-          class="opacity-70 transform duration-200 hover:scale-105"
-          src="/static/images/omen.png"
-          title="OMEN"
-          alt=""
-        />
-        <span class="absolute pointer-events-none inset-x-0 bottom-8"
-          >OMEN</span
-        >
-      </a>
-    </li>
+    {% endfor %}
   </ul>
 </div>
 {% endblock content %}

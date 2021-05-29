@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="http://localhost:5000/static/css/bootstrap.min.css"
+      type="text/css"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
+      rel="stylesheet"
+    />
+    <title>{{ updates }}</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <div class="mt-5">
+            <h1>{{ updates }}</h1>
+          </div>
+          <div class="mt-5">
+            <img
+              src="http://localhost:5000/static/images/{{ image }}"
+              alt="{{ name }}"
+            />
+          </div>
+          <div class="mt-2">
+            <h1 class="anton text-uppercase">{{ name }}</h1>
+          </div>
+          <div class="mt-5">
+            <h5>View more information on the website now!</h5>
+          </div>
+          <div class="mt-3 mb-5">
+            <a
+              href="http://localhost:5000"
+              class="btn btn-primary"
+              role="button"
+            >
+              Explore Now
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="text-center text-white py-4" style="background: #1c252e">
+        <div class="footer-copyright text-center">
+          © 2021 VALORANT Guides:<strong> All Rights Reserved.</strong>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

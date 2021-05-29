@@ -12,6 +12,7 @@
       gap-5
     "
   >
+    {% for row in weapon_data %}
     <li
       class="
         w-80
@@ -30,111 +31,19 @@
         hover:from-indigo-500
       "
     >
-      <a href="/weapon_details" class="block bg-transparent p-1.5">
+      <a href="/weapon_details/{{ row.id }}" class="block bg-transparent p-1.5">
         <img
           class="transform pt-1 duration-200 hover:scale-105"
-          src="/static/images/odin.png"
-          title="ODIN"
+          src="/static/images/{{ row.img }}"
+          title="{{ row.name }}"
           alt=""
         />
-        <span class="absolute pointer-events-none inset-x-0 bottom-2"
-          >ODIN</span
+        <span class="absolute pointer-events-none inset-x-0 bottom-2 uppercase"
+          >{{ row.name }}</span
         >
       </a>
     </li>
-
-    <li
-      class="
-        w-80
-        h-36
-        shadow-2xl
-        border-4 border-gray-700
-        rounded-lg
-        transition
-        relative
-        duration-100
-        bg-gradient-to-t
-        from-black
-        overflow-hidden
-        hover:border-indigo-500
-        hover:bg-gradient-to-t
-        hover:from-indigo-500
-      "
-    >
-      <a href="" class="block bg-transparent p-1.5">
-        <img
-          class="transform pt-1 duration-200 hover:scale-105"
-          src="/static/images/phantom.png"
-          title="phantom"
-          alt=""
-        />
-        <span class="absolute pointer-events-none inset-x-0 bottom-2"
-          >PHANTOM</span
-        >
-      </a>
-    </li>
-
-    <li
-      class="
-        w-80
-        h-36
-        shadow-2xl
-        border-4 border-gray-700
-        rounded-lg
-        transition
-        relative
-        duration-100
-        bg-gradient-to-t
-        from-black
-        overflow-hidden
-        hover:border-indigo-500
-        hover:bg-gradient-to-t
-        hover:from-indigo-500
-      "
-    >
-      <a href="" class="block bg-transparent p-1.5">
-        <img
-          class="transform pt-1 duration-200 hover:scale-105"
-          src="/static/images/ghost.png"
-          title="GHOST"
-          alt=""
-        />
-        <span class="absolute pointer-events-none inset-x-0 bottom-2"
-          >GHOST</span
-        >
-      </a>
-    </li>
-
-    <li
-      class="
-        w-80
-        h-36
-        shadow-2xl
-        border-4 border-gray-700
-        rounded-lg
-        transition
-        relative
-        duration-100
-        bg-gradient-to-t
-        from-black
-        overflow-hidden
-        hover:border-indigo-500
-        hover:bg-gradient-to-t
-        hover:from-indigo-500
-      "
-    >
-      <a href="" class="block bg-transparent p-1.5">
-        <img
-          class="transform pt-1 duration-200 hover:scale-105"
-          src="/static/images/operator.png"
-          title="OPERATOR"
-          alt=""
-        />
-        <span class="absolute pointer-events-none inset-x-0 bottom-2"
-          >OPERATOR</span
-        >
-      </a>
-    </li>
+    {% endfor %}
   </ul>
 </div>
 {% endblock content %}

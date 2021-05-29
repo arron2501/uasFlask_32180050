@@ -14,6 +14,7 @@
         gap-5
       "
     >
+      {% for row in map_data %}
       <li
         class="
           shadow-2xl
@@ -30,163 +31,19 @@
           hover:from-indigo-500
         "
       >
-        <a href="/map_details" class="block bg-transparent p-1.5">
+        <a href="/map_details/{{ row.id }}" class="block bg-transparent p-1.5">
           <img
             class="opacity-70 transform duration-200 hover:scale-105"
-            src="/static/images/ascent.png"
-            title="ASCENT"
-            alt=""
+            src="/static/images/{{ row.splash }}"
+            title="{{ row.name }}"
           />
-          <span class="absolute pointer-events-none inset-x-0 bottom-8"
-            >ASCENT</span
+          <span
+            class="absolute pointer-events-none inset-x-0 bottom-8 uppercase"
+            >{{ row.name }}</span
           >
         </a>
       </li>
-
-      <li
-        class="
-          shadow-2xl
-          border-4 border-gray-700
-          rounded-lg
-          relative
-          transition
-          duration-100
-          bg-gradient-to-t
-          from-black
-          overflow-hidden
-          hover:border-indigo-500
-          hover:bg-gradient-to-t
-          hover:from-indigo-500
-        "
-      >
-        <a href="" class="block bg-transparent p-1.5">
-          <img
-            class="opacity-70 transform duration-200 hover:scale-105"
-            src="/static/images/split.png"
-            title="SPLIT"
-            alt=""
-          />
-          <span class="absolute pointer-events-none inset-x-0 bottom-8"
-            >SPLIT</span
-          >
-        </a>
-      </li>
-
-      <li
-        class="
-          shadow-2xl
-          border-4 border-gray-700
-          rounded-lg
-          relative
-          transition
-          duration-100
-          bg-gradient-to-t
-          from-black
-          overflow-hidden
-          hover:border-indigo-500
-          hover:bg-gradient-to-t
-          hover:from-indigo-500
-        "
-      >
-        <a href="" class="block bg-transparent p-1.5">
-          <img
-            class="opacity-70 transform duration-200 hover:scale-105"
-            src="/static/images/bind.png"
-            title="BIND"
-            alt=""
-          />
-          <span class="absolute pointer-events-none inset-x-0 bottom-8"
-            >BIND</span
-          >
-        </a>
-      </li>
-
-      <li
-        class="
-          shadow-2xl
-          border-4 border-gray-700
-          rounded-lg
-          relative
-          transition
-          duration-100
-          bg-gradient-to-t
-          from-black
-          overflow-hidden
-          hover:border-indigo-500
-          hover:bg-gradient-to-t
-          hover:from-indigo-500
-        "
-      >
-        <a href="" class="block bg-transparent p-1.5">
-          <img
-            class="opacity-70 transform duration-200 hover:scale-105"
-            src="/static/images/breeze.png"
-            title="BREEZE"
-            alt=""
-          />
-          <span class="absolute pointer-events-none inset-x-0 bottom-8"
-            >BREEZE</span
-          >
-        </a>
-      </li>
-
-      <li
-        class="
-          shadow-2xl
-          border-4 border-gray-700
-          rounded-lg
-          relative
-          transition
-          duration-100
-          bg-gradient-to-t
-          from-black
-          overflow-hidden
-          hover:border-indigo-500
-          hover:bg-gradient-to-t
-          hover:from-indigo-500
-        "
-      >
-        <a href="" class="block bg-transparent p-1.5">
-          <img
-            class="opacity-70 transform duration-200 hover:scale-105"
-            src="/static/images/icebox.png"
-            title="ICEBOX"
-            alt=""
-          />
-          <span class="absolute pointer-events-none inset-x-0 bottom-8"
-            >ICEBOX</span
-          >
-        </a>
-      </li>
-
-      <li
-        class="
-          shadow-2xl
-          border-4 border-gray-700
-          rounded-lg
-          relative
-          transition
-          duration-100
-          bg-gradient-to-t
-          from-black
-          overflow-hidden
-          hover:border-indigo-500
-          hover:bg-gradient-to-t
-          hover:from-indigo-500
-        "
-      >
-        <a href="" class="block bg-transparent p-1.5">
-          <img
-            class="opacity-70 transform duration-200 hover:scale-105"
-            src="/static/images/haven.png"
-            title="HAVEN"
-            alt=""
-          />
-          <span class="absolute pointer-events-none inset-x-0 bottom-8"
-            >HAVEN</span
-          >
-        </a>
-      </li>
+      {% endfor %}
     </ul>
   </div>
 </div>

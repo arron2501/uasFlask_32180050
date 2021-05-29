@@ -6,7 +6,7 @@
       {% with messages = get_flashed_messages() %}
         {% if messages %}
           {% for message in messages %}
-            <p class="text-center text-indigo-400">{{ message }}</p>
+            <p class="text-center text-indigo-300">{{ message }}</p>
           {% endfor %}
         {% endif %}
       {% endwith %}
@@ -14,20 +14,43 @@
     <p class="text-white font-bold text-center md:text-left text-3xl">
       Edit Agent
     </p>
-
     <div class="pt-12 flex flex-col items-center md:items-start">
       <form
-        action="/edit_agent"
+        action="/edit_agent/{{ agent_data.id }}"
         method="post"
         enctype="multipart/form-data"
         class="space-y-10"
       >
+        <!-- prettier-ignore -->
+        <div class="text-white space-y-2">
+          <p class="font-semibold">Previous agent image</p>
+          {% if agent_data.img == 'uploads/agents/' or agent_data.img == '' %}
+            <input type="text" class="
+            px-4
+            w-full
+            md:w-96
+            bg-gray-800
+            hover:bg-gray-700
+            rounded-lg
+            border-2 border-transparent
+            hover:border-indigo-500" value="No agent image displayed" readonly />
+          {% else %}
+            <input type="text" class="
+            px-4
+            w-full
+            md:w-96
+            bg-gray-800
+            hover:bg-gray-700
+            rounded-lg
+            border-2 border-transparent
+            hover:border-indigo-500" value="{{ agent_data.img }}" readonly />
+          {% endif %}  
+        </div>
         <div class="text-white space-y-2">
           <p class="font-semibold">Image</p>
 
           <input type="file" name="agentimage" id="agentimage" required />
         </div>
-
         <div class="text-white space-y-2">
           <p class="font-semibold">Name</p>
           <input
@@ -44,11 +67,11 @@
             type="text"
             name="agentname"
             id="agentname"
-            placeholder="Agent Name"
+            placeholder="Agent name"
+            value="{{ agent_data.name }}"
             required
           />
         </div>
-
         <div class="text-white space-y-2">
           <p class="font-semibold">Role</p>
           <div
@@ -102,10 +125,9 @@
             </div>
           </div>
         </div>
-
         <div class="text-white space-y-2">
           <p class="font-semibold">Bio</p>
-          <input
+          <textarea
             class="
               px-4
               w-full
@@ -119,13 +141,16 @@
             type="text"
             name="agentbio"
             id="agentbio"
-            placeholder="Agent Bio"
+            placeholder="Agent bio"
+            rows="3"
             required
-          />
+          >
+{{ agent_data.bio }}</textarea
+          >
         </div>
-
+        <div><hr /></div>
         <div class="text-white space-y-2">
-          <p class="font-semibold">A1</p>
+          <p class="font-semibold">Ability 1</p>
           <input
             class="
               px-4
@@ -140,19 +165,43 @@
             type="text"
             name="a1"
             id="a1"
-            placeholder="Ability 1"
+            placeholder="Ability 1 name"
+            value="{{ agent_data.a1 }}"
             required
           />
         </div>
-
+        <!-- prettier-ignore -->
         <div class="text-white space-y-2">
-          <p class="font-semibold">IA1</p>
-          <input type="file" name="ia1" id="ia1" required />
+          <p class="font-semibold">Previous ability 1 image</p>
+          {% if agent_data.ai1 == 'uploads/agents/abilities/' or agent_data.ai1 == '' %}
+            <input type="text" class="
+            px-4
+            w-full
+            md:w-96
+            bg-gray-800
+            hover:bg-gray-700
+            rounded-lg
+            border-2 border-transparent
+            hover:border-indigo-500" value="No mockup displayed" readonly />
+          {% else %}
+            <input type="text" class="
+            px-4
+            w-full
+            md:w-96
+            bg-gray-800
+            hover:bg-gray-700
+            rounded-lg
+            border-2 border-transparent
+            hover:border-indigo-500" value="{{ agent_data.ai1 }}" readonly />
+          {% endif %}  
         </div>
-
         <div class="text-white space-y-2">
-          <p class="font-semibold">DA1</p>
-          <input
+          <p class="font-semibold">New ability 1 image</p>
+          <input type="file" name="ai1" id="ai1" required />
+        </div>
+        <div class="text-white space-y-2">
+          <p class="font-semibold">Ability 1 description</p>
+          <textarea
             class="
               px-4
               w-full
@@ -164,15 +213,18 @@
               hover:border-indigo-500
             "
             type="text"
-            name="da1"
-            id="da1"
-            placeholder="Ability 1 Description"
+            name="ad1"
+            id="ad1"
+            placeholder="Ability 1 description"
+            rows="3"
             required
-          />
+          >
+{{ agent_data.ad1 }}</textarea
+          >
         </div>
-
+        <div><hr /></div>
         <div class="text-white space-y-2">
-          <p class="font-semibold">A2</p>
+          <p class="font-semibold">Ability 2</p>
           <input
             class="
               px-4
@@ -187,19 +239,43 @@
             type="text"
             name="a2"
             id="a2"
-            placeholder="Ability 2"
+            placeholder="Ability 2 name"
+            value="{{ agent_data.a2 }}"
             required
           />
         </div>
-
+        <!-- prettier-ignore -->
         <div class="text-white space-y-2">
-          <p class="font-semibold">IA2</p>
-          <input type="file" name="ia2" id="ia2" required />
+          <p class="font-semibold">Previous ability 2 image</p>
+          {% if agent_data.ai2 == 'uploads/agents/abilities/' or agent_data.ai2 == '' %}
+            <input type="text" class="
+            px-4
+            w-full
+            md:w-96
+            bg-gray-800
+            hover:bg-gray-700
+            rounded-lg
+            border-2 border-transparent
+            hover:border-indigo-500" value="No mockup displayed" readonly />
+          {% else %}
+            <input type="text" class="
+            px-4
+            w-full
+            md:w-96
+            bg-gray-800
+            hover:bg-gray-700
+            rounded-lg
+            border-2 border-transparent
+            hover:border-indigo-500" value="{{ agent_data.ai2 }}" readonly />
+          {% endif %}  
         </div>
-
         <div class="text-white space-y-2">
-          <p class="font-semibold">DA2</p>
-          <input
+          <p class="font-semibold">New ability 2 image</p>
+          <input type="file" name="ai2" id="ai2" required />
+        </div>
+        <div class="text-white space-y-2">
+          <p class="font-semibold">Ability 2 Description</p>
+          <textarea
             class="
               px-4
               w-full
@@ -211,15 +287,18 @@
               hover:border-indigo-500
             "
             type="text"
-            name="da2"
-            id="da2"
-            placeholder="Ability 2 Description"
+            name="ad2"
+            id="ad2"
+            placeholder="Ability 2 description"
+            rows="3"
             required
-          />
+          >
+{{ agent_data.ad2 }}</textarea
+          >
         </div>
-
+        <div><hr /></div>
         <div class="text-white space-y-2">
-          <p class="font-semibold">A3</p>
+          <p class="font-semibold">Ability 3</p>
           <input
             class="
               px-4
@@ -234,19 +313,43 @@
             type="text"
             name="a3"
             id="a3"
-            placeholder="Ability 3"
+            placeholder="Ability 3 name"
+            value="{{ agent_data.a3 }}"
             required
           />
         </div>
-
+        <!-- prettier-ignore -->
         <div class="text-white space-y-2">
-          <p class="font-semibold">IA3</p>
-          <input type="file" name="ia3" id="ia3" required />
+          <p class="font-semibold">Previous ability 3 image</p>
+          {% if agent_data.ai3 == 'uploads/agents/abilities/' or agent_data.ai3 == '' %}
+            <input type="text" class="
+            px-4
+            w-full
+            md:w-96
+            bg-gray-800
+            hover:bg-gray-700
+            rounded-lg
+            border-2 border-transparent
+            hover:border-indigo-500" value="No mockup displayed" readonly />
+          {% else %}
+            <input type="text" class="
+            px-4
+            w-full
+            md:w-96
+            bg-gray-800
+            hover:bg-gray-700
+            rounded-lg
+            border-2 border-transparent
+            hover:border-indigo-500" value="{{ agent_data.ai3 }}" readonly />
+          {% endif %}  
         </div>
-
         <div class="text-white space-y-2">
-          <p class="font-semibold">DA3</p>
-          <input
+          <p class="font-semibold">New ability 3 image</p>
+          <input type="file" name="ai3" id="ai3" required />
+        </div>
+        <div class="text-white space-y-2">
+          <p class="font-semibold">Ability 3 description</p>
+          <textarea
             class="
               px-4
               w-full
@@ -258,15 +361,18 @@
               hover:border-indigo-500
             "
             type="text"
-            name="da3"
-            id="da3"
-            placeholder="Ability 3 Description"
+            name="ad3"
+            id="ad3"
+            placeholder="Ability 3 description"
+            rows="3"
             required
-          />
+          >
+{{ agent_data.ad3 }}</textarea
+          >
         </div>
-
+        <div><hr /></div>
         <div class="text-white space-y-2">
-          <p class="font-semibold">A4</p>
+          <p class="font-semibold">Ability 4</p>
           <input
             class="
               px-4
@@ -281,19 +387,43 @@
             type="text"
             name="a4"
             id="a4"
-            placeholder="Ability 4"
+            placeholder="Ability 4 name"
+            value="{{ agent_data.a4 }}"
             required
           />
         </div>
-
+        <!-- prettier-ignore -->
         <div class="text-white space-y-2">
-          <p class="font-semibold">IA4</p>
-          <input type="file" name="ia4" id="ia4" required />
+          <p class="font-semibold">Previous ability 4 image</p>
+          {% if agent_data.ai4 == 'uploads/agents/abilities/' or agent_data.ai4 == '' %}
+            <input type="text" class="
+            px-4
+            w-full
+            md:w-96
+            bg-gray-800
+            hover:bg-gray-700
+            rounded-lg
+            border-2 border-transparent
+            hover:border-indigo-500" value="No mockup displayed" readonly />
+          {% else %}
+            <input type="text" class="
+            px-4
+            w-full
+            md:w-96
+            bg-gray-800
+            hover:bg-gray-700
+            rounded-lg
+            border-2 border-transparent
+            hover:border-indigo-500" value="{{ agent_data.ai4 }}" readonly />
+          {% endif %}  
         </div>
-
         <div class="text-white space-y-2">
-          <p class="font-semibold">DA4</p>
-          <input
+          <p class="font-semibold">Ability 4 image</p>
+          <input type="file" name="ai4" id="ai4" required />
+        </div>
+        <div class="text-white space-y-2">
+          <p class="font-semibold">Ability 4 description</p>
+          <textarea
             class="
               px-4
               w-full
@@ -305,13 +435,15 @@
               hover:border-indigo-500
             "
             type="text"
-            name="da4"
-            id="da4"
-            placeholder="Ability 4 Description"
+            name="ad4"
+            id="ad4"
+            placeholder="Ability 4 description"
+            rows="3"
             required
-          />
+          >
+{{ agent_data.ad4 }}</textarea
+          >
         </div>
-
         <div class="text-center md:text-right">
           <button type="submit" class="text-indigo-500 hover:text-indigo-700">
             <svg
@@ -329,7 +461,6 @@
           </button>
         </div>
       </form>
-
       <div class="text-indigo-300 pt-16 font-semibold">
         <a href="/manage_agents">
           <svg

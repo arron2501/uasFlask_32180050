@@ -3,10 +3,10 @@
   <p class="text-white font-bold text-center md:text-left text-5xl">
     Weapon Details
   </p>
-
   <div
     class="pt-12 flex flex-wrap md:flex-nowrap justify-center md:justify-start"
   >
+    {% for row in weapon_data %}
     <div
       class="
         md:h-48
@@ -27,9 +27,8 @@
       <div class="block bg-transparent p-1.5">
         <img
           class="transform md:pt-3 duration-200 hover:scale-105"
-          src="/static/images/odin.png"
-          title="ODIN"
-          alt=""
+          src="/static/images/{{ row.img }}"
+          title="{{ row.name }}"
         />
         <span
           class="
@@ -39,12 +38,12 @@
             pointer-events-none
             inset-x-0
             bottom-3
+            uppercase
           "
-          >ODIN</span
+          >{{ row.name }}</span
         >
       </div>
     </div>
-
     <div
       class="
         pt-10
@@ -58,34 +57,34 @@
       "
     >
       <div class="space-y-7">
-        <p class="anton text-white text-4xl">HEAVY WEAPON</p>
-
+        <p class="anton text-white text-4xl uppercase">{{ row.category }}</p>
         <div class="text-white space-y-2">
           <p class="font-semibold">
             // <span class="underline">Primary Fire</span>
           </p>
-          <p class="break-words">Fire Rate: 12 rounds/sec</p>
+          <p class="break-words">
+            Fire Rate:&nbsp;{{ row.pfr }}&nbsp;rounds/sec
+          </p>
         </div>
-
         <div class="text-white space-y-2">
           <p class="font-semibold">
             // <span class="underline">Alt Fire</span>
           </p>
-          <p>Zoom Mode: 1.15x<br />Fire Rate: 15.6 rounds/sec</p>
+          <p>Fire Rate:&nbsp;{{ row.afr }}&nbsp;rounds/sec</p>
         </div>
-
         <div class="text-white space-y-2">
           <p class="font-semibold">// <span class="underline">Damage</span></p>
-          <p>Body 38&ensp;|&ensp;Head 95&ensp;|&ensp;Leg 32.3</p>
-        </div>
-
-        <div class="text-white space-y-2">
           <p>
-            Magazine Capacity: 100<br />
-            Wall Penetration: High
+            Body&nbsp;{{ row.body_dmg }}&ensp;|&ensp;Head&nbsp;{{ row.head_dmg
+            }}&ensp;|&ensp;Leg&nbsp;{{ row.leg_dmg }}
           </p>
         </div>
-
+        <div class="text-white space-y-2">
+          <p>
+            Magazine Capacity:&nbsp;{{ row.mag }}<br />
+            Wall Penetration:&nbsp;{{ row.wp }}
+          </p>
+        </div>
         <div class="text-indigo-300 font-semibold">
           <a href="/weapons">
             <svg
@@ -105,6 +104,7 @@
         </div>
       </div>
     </div>
+    {% endfor %}
   </div>
 </div>
 {% endblock content %}

@@ -6,14 +6,12 @@
       {% with messages = get_flashed_messages() %}
         {% if messages %}
           {% for message in messages %}
-            <p class="text-center text-green-500">{{ message }}</p>
+            <p class="text-center text-indigo-300">{{ message }}</p>
           {% endfor %}
         {% endif %}
       {% endwith %}
     </div>
-
     <p class="text-white font-bold text-center text-3xl">Register Admin</p>
-
     <form action="/register_admin" method="post" class="space-y-7">
       <div class="text-white space-y-2">
         <p class="font-semibold">Name</p>

@@ -6,7 +6,7 @@
       {% with messages = get_flashed_messages() %}
         {% if messages %}
           {% for message in messages %}
-            <p class="text-center text-indigo-400">{{ message }}</p>
+            <p class="text-center text-indigo-300">{{ message }}</p>
           {% endfor %}
         {% endif %}
       {% endwith %}
@@ -14,24 +14,71 @@
     <p class="text-white font-bold text-center md:text-left text-3xl">
       Edit Maps
     </p>
-
     <div class="pt-12 flex flex-col items-center md:items-start">
       <form
-        action="/edit_map"
+        action="/edit_map/{{ map_data.id }}"
         method="post"
         enctype="multipart/form-data"
         class="space-y-10"
       >
+        <!-- prettier-ignore -->
+        <div class="text-white space-y-2">
+          <p class="font-semibold">Previous map splash image</p>
+          {% if map_data.splash == 'uploads/maps/' or map_data.splash == '' %}
+            <input type="text" class="
+            px-4
+            w-full
+            md:w-96
+            bg-gray-800
+            hover:bg-gray-700
+            rounded-lg
+            border-2 border-transparent
+            hover:border-indigo-500" value="No map splash image displayed" readonly />
+          {% else %}
+            <input type="text" class="
+            px-4
+            w-full
+            md:w-96
+            bg-gray-800
+            hover:bg-gray-700
+            rounded-lg
+            border-2 border-transparent
+            hover:border-indigo-500" value="{{ map_data.splash }}" readonly />
+          {% endif %}  
+        </div>
         <div class="text-white space-y-2">
           <p class="font-semibold">Splash</p>
           <input type="file" name="mapsplash" id="mapsplash" required />
         </div>
-
+        <!-- prettier-ignore -->
+        <div class="text-white space-y-2">
+          <p class="font-semibold">Previous map display image</p>
+          {% if map_data.display == 'uploads/maps/' or map_data.display == '' %}
+            <input type="text" class="
+            px-4
+            w-full
+            md:w-96
+            bg-gray-800
+            hover:bg-gray-700
+            rounded-lg
+            border-2 border-transparent
+            hover:border-indigo-500" value="No map display image displayed" readonly />
+          {% else %}
+            <input type="text" class="
+            px-4
+            w-full
+            md:w-96
+            bg-gray-800
+            hover:bg-gray-700
+            rounded-lg
+            border-2 border-transparent
+            hover:border-indigo-500" value="{{ map_data.display }}" readonly />
+          {% endif %}  
+        </div>
         <div class="text-white space-y-2">
           <p class="font-semibold">Display</p>
           <input type="file" name="mapdisplay" id="mapdisplay" required />
         </div>
-
         <div class="text-white space-y-2">
           <p class="font-semibold">Name</p>
           <input
@@ -48,11 +95,11 @@
             type="text"
             name="mapname"
             id="mapname"
-            placeholder="Map Name"
+            placeholder="Map name"
+            value="{{ map_data.name }}"
             required
           />
         </div>
-
         <div class="text-white space-y-2">
           <p class="font-semibold">Coordinate</p>
           <input
@@ -69,11 +116,11 @@
             type="text"
             name="mapcoordinate"
             id="mapcoordinate"
-            placeholder="Map Coordinate"
+            placeholder="Map coordinate"
+            value="{{ map_data.coordinate }}"
             required
           />
         </div>
-
         <div class="text-center md:text-right">
           <button type="submit" class="text-indigo-500 hover:text-indigo-700">
             <svg
@@ -91,7 +138,6 @@
           </button>
         </div>
       </form>
-
       <div class="text-indigo-300 pt-16 font-semibold">
         <a href="/manage_maps">
           <svg

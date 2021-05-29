@@ -1,6 +1,16 @@
 {% extends 'layout.html' %} {% block content %}
 <div class="md:mr-24">
   <div class="flex flex-col h-screen justify-center items-center space-y-12">
+    <!-- prettier-ignore -->
+    <div>
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            <p class="text-center text-indigo-300">{{ message }}</p>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+    </div>
     <p class="text-white font-bold text-center text-3xl">Welcome, Admin!</p>
     <!-- if not logged in, show this button -->
     {% if session['loggedin'] == True and session.get('role_id') == 0 %}
@@ -21,20 +31,20 @@
             </div>
           </a>
         </div>
-        <div>
+        <div class="col-span-2">
           <a href="/manage_maps">
             <div class="px-12 py-3 bg-gray-800 rounded-lg hover:bg-gray-700">
               Maps
             </div>
           </a>
         </div>
-        <div>
+        <!-- <div>
           <a href="/manage_news">
             <div class="px-12 py-3 bg-gray-800 rounded-lg hover:bg-gray-700">
               News
             </div>
           </a>
-        </div>
+        </div> -->
       </div>
       <div class="grid mt-12 md:grid-cols-2 md:grid-rows-1 gap-4">
         <div>

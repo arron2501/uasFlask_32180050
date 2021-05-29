@@ -6,7 +6,7 @@
       {% with messages = get_flashed_messages() %}
         {% if messages %}
           {% for message in messages %}
-            <p class="text-center text-indigo-400">{{ message }}</p>
+            <p class="text-center text-indigo-300">{{ message }}</p>
           {% endfor %}
         {% endif %}
       {% endwith %}
@@ -14,20 +14,43 @@
     <p class="text-white font-bold text-center md:text-left text-3xl">
       Edit Weapon
     </p>
-
     <div class="pt-12 flex flex-col items-center md:items-start">
       <form
-        action="/edit_weapon"
+        action="/edit_weapon/{{ weapon_data.id }}"
         enctype="multipart/form-data"
         method="post"
         class="space-y-10"
       >
+        <!-- prettier-ignore -->
+        <div class="text-white space-y-2">
+          <p class="font-semibold">Previous weapon image</p>
+          {% if weapon_data.img == 'uploads/weapons/' or weapon_data.img == '' %}
+            <input type="text" class="
+            px-4
+            w-full
+            md:w-96
+            bg-gray-800
+            hover:bg-gray-700
+            rounded-lg
+            border-2 border-transparent
+            hover:border-indigo-500" value="No weapon image displayed" readonly />
+          {% else %}
+            <input type="text" class="
+            px-4
+            w-full
+            md:w-96
+            bg-gray-800
+            hover:bg-gray-700
+            rounded-lg
+            border-2 border-transparent
+            hover:border-indigo-500" value="{{ weapon_data.img }}" readonly />
+          {% endif %}  
+        </div>
         <div class="text-white space-y-2">
           <p class="font-semibold">Image</p>
 
           <input type="file" name="weaponimage" id="weaponimage" required />
         </div>
-
         <div class="text-white space-y-2">
           <p class="font-semibold">Name</p>
           <input
@@ -44,11 +67,11 @@
             type="text"
             name="weaponname"
             id="weaponname"
-            placeholder="Weapon Name"
+            placeholder="Weapon name"
+            value="{{ weapon_data.name }}"
             required
           />
         </div>
-
         <div class="text-white space-y-2">
           <p class="font-semibold">Category</p>
           <select
@@ -75,30 +98,8 @@
             <option value="Melee">Melee</option>
           </select>
         </div>
-
         <div class="text-white space-y-2">
-          <p class="font-semibold">Primary Fire Mode</p>
-          <input
-            class="
-              px-4
-              w-full
-              md:w-96
-              bg-gray-800
-              hover:bg-gray-700
-              rounded-lg
-              border-2 border-transparent
-              hover:border-indigo-500
-            "
-            type="text"
-            name="pfm"
-            id="pfm"
-            placeholder="Primary Fire Mode"
-            required
-          />
-        </div>
-
-        <div class="text-white space-y-2">
-          <p class="font-semibold">Primary Fire Rate</p>
+          <p class="font-semibold">Primary fire rate</p>
           <input
             class="
               px-4
@@ -113,13 +114,13 @@
             type="text"
             name="pfr"
             id="pfr"
-            placeholder="Primary Fire Rate"
+            placeholder="Primary fire rate"
+            value="{{ weapon_data.pfr }}"
             required
           />
         </div>
-
         <div class="text-white space-y-2">
-          <p class="font-semibold">Alt Fire Rate</p>
+          <p class="font-semibold">Alt fire rate</p>
           <input
             class="
               px-4
@@ -134,13 +135,13 @@
             type="text"
             name="afr"
             id="afr"
-            placeholder="Alt Fire Rate"
+            placeholder="Alt fire rate"
+            value="{{ weapon_data.afr }}"
             required
           />
         </div>
-
         <div class="text-white space-y-2">
-          <p class="font-semibold">Body Damage</p>
+          <p class="font-semibold">Body damage</p>
           <input
             class="
               px-4
@@ -155,13 +156,13 @@
             type="number"
             name="bodydmg"
             id="bodydmg"
-            placeholder="Body Damage"
+            placeholder="Body damage"
+            value="{{ weapon_data.body_dmg }}"
             required
           />
         </div>
-
         <div class="text-white space-y-2">
-          <p class="font-semibold">Head Damage</p>
+          <p class="font-semibold">Head damage</p>
           <input
             class="
               px-4
@@ -176,13 +177,13 @@
             type="number"
             name="headdmg"
             id="headdmg"
-            placeholder="Head Damage"
+            placeholder="Head damage"
+            value="{{ weapon_data.head_dmg }}"
             required
           />
         </div>
-
         <div class="text-white space-y-2">
-          <p class="font-semibold">Leg Damage</p>
+          <p class="font-semibold">Leg damage</p>
           <input
             class="
               px-4
@@ -197,13 +198,13 @@
             type="number"
             name="legdmg"
             id="legdmg"
-            placeholder="Leg Damage"
+            placeholder="Leg damage"
+            value="{{ weapon_data.leg_dmg }}"
             required
           />
         </div>
-
         <div class="text-white space-y-2">
-          <p class="font-semibold">Magazine Capacity</p>
+          <p class="font-semibold">Magazine capacity</p>
           <input
             class="
               px-4
@@ -218,13 +219,13 @@
             type="number"
             name="mag"
             id="mag"
-            placeholder="Magazine Capacity"
+            placeholder="Magazine capacity"
+            value="{{ weapon_data.mag }}"
             required
           />
         </div>
-
         <div class="text-white space-y-2">
-          <p class="font-semibold">Wall Penetration</p>
+          <p class="font-semibold">Wall penetration</p>
           <input
             class="
               px-4
@@ -239,11 +240,11 @@
             type="text"
             name="wp"
             id="wp"
-            placeholder="Wall Penetration"
+            placeholder="Wall penetration"
+            value="{{ weapon_data.wp }}"
             required
           />
         </div>
-
         <div class="text-center md:text-right">
           <button type="submit" class="text-indigo-500 hover:text-indigo-700">
             <svg
@@ -261,7 +262,6 @@
           </button>
         </div>
       </form>
-
       <div class="text-indigo-300 pt-16 font-semibold">
         <a href="/manage_weapons">
           <svg

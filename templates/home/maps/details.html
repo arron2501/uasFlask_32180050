@@ -3,10 +3,10 @@
   <p class="text-white font-bold text-center md:text-left text-5xl">
     Map Details
   </p>
-
   <div
     class="pt-12 flex flex-wrap md:flex-nowrap justify-center md:justify-start"
   >
+    {% for row in map_data %}
     <div class="flex flex-col md:w-1/2">
       <div
         class="
@@ -28,9 +28,8 @@
         <div class="block bg-transparent p-1.5">
           <img
             class="opacity-80 transform duration-200 hover:scale-105"
-            src="/static/images/ascent.png"
-            title="ASCENT"
-            alt=""
+            src="/static/images/{{ row.splash }}"
+            title="{{ row.name }}"
           />
           <span
             class="
@@ -40,17 +39,16 @@
               pointer-events-none
               inset-x-0
               bottom-5
+              uppercase
             "
-            >ASCENT</span
+            >{{ row.name }}</span
           >
         </div>
       </div>
-
       <div class="h-full pt-4">
-        <img src="/static/images/ascent_icon.png" title="ASCENT" alt="" />
+        <img src="/static/images/{{ row.display }}" title="{{ row.name }}" />
       </div>
     </div>
-
     <div
       class="
         pt-5
@@ -68,9 +66,8 @@
           <p class="font-semibold">
             // <span class="underline">Coordinates</span>
           </p>
-          <p class="break-words">45°26'BF'N,12°20'Q'E</p>
+          <p class="break-words">{{ row.coordinate }}</p>
         </div>
-
         <div class="text-indigo-300 font-semibold">
           <a href="/maps">
             <svg
@@ -90,6 +87,7 @@
         </div>
       </div>
     </div>
+    {% endfor %}
   </div>
 </div>
 {% endblock content %}
