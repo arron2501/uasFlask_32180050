@@ -197,8 +197,10 @@
                       {{ row.role }}
                     </span>
                   </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-white">
-                    {{ row.bio }}
+                  <td class="px-6 py-4 text-sm text-white">
+                    <div class="overflow-y-auto w-36 h-36">
+                      <p class="break-words">{{ row.bio }}</p>
+                    </div>
                   </td>
                   <td class="px-6 py-4 whitespace-nowrap text-sm text-white">
                     {{ row.a1 }}<br />

@@ -896,6 +896,10 @@ select {
 	height: 100vh;
 }
 
+.h-36 {
+	height: 9rem;
+}
+
 .h-24 {
 	height: 6rem;
 }
@@ -910,10 +914,6 @@ select {
 
 .h-10 {
 	height: 2.5rem;
-}
-
-.h-36 {
-	height: 9rem;
 }
 
 .min-h-screen {
@@ -954,6 +954,10 @@ select {
 
 .w-12 {
 	width: 3rem;
+}
+
+.w-36 {
+	width: 9rem;
 }
 
 .w-10 {
@@ -1139,6 +1143,10 @@ select {
 
 .overflow-hidden {
 	overflow: hidden;
+}
+
+.overflow-y-auto {
+	overflow-y: auto;
 }
 
 .whitespace-nowrap {
