@@ -89,7 +89,7 @@ def login():
             flash('Incorrect username/password!')
     else:
         # User dan admin akan diredirect ke page indexnya masing-masing apabila, mengakses halaman login pada saat user/admin tsb sudah login
-        if "name" in session:
+        if session.get('loggedin') == True:
             # Jika role_id nya 1 (member), maka otomatis akan redirect ke halaman khusus member
             if session.get('role_id') == 1:
                 return redirect(url_for('index'))
@@ -144,7 +144,7 @@ def register():
                 return print('Failed to send greetings email!')
     else:
         # User dan admin akan diredirect ke page indexnya masing-masing apabila, mengakses halaman register pada saat user/admin tsb sudah login
-        if "name" in session:
+        if session.get('loggedin') == True:
             # Jika role_id nya 1 (member), maka otomatis akan redirect ke halaman khusus member
             if session.get('role_id') == 1:
                 return redirect(url_for('index'))
@@ -200,7 +200,7 @@ def register_admin():
                 return print('Failed to send greetings email!')
     else:
         # User dan admin akan diredirect ke page indexnya masing-masing apabila, mengakses halaman register_admin pada saat user/admin tsb sudah login
-        if "name" in session:
+        if session.get('loggedin') == True:
             # Jika role_id nya 1 (member), maka otomatis akan redirect ke halaman khusus member
             if session.get('role_id') == 1:
                 return redirect(url_for('index'))
@@ -228,7 +228,7 @@ def logout():
 @app.route('/admin')
 def admin():
     # Menghalangi member agar tidak bisa masuk ke halaman admin
-    if session['loggedin'] == True and session.get('role_id') != 0:
+    if session.get('loggedin') == True and session.get('role_id') != 0:
         print('Member not allowed to access admin page!')
         return redirect(url_for('index'))
     return render_template('/admin/index.html', title="Admin Page", home_menu="hidden", sidenav="hidden", mobile_sidenav="hidden")
@@ -242,7 +242,7 @@ def manage_agents():
     cursor.execute("SELECT * FROM agents")
     agent_data = cursor.fetchall()
     # Memastikan apakah yang membuka halaman adalah admin
-    if session['loggedin'] == True and session.get('role_id') == 0:
+    if session.get('loggedin') == True and session.get('role_id') == 0:
         return render_template('/admin/agents/index.html', title="Manage Agents", home_menu="hidden", sidenav="hidden", mobile_sidenav="hidden", agent_data=agent_data)
     else:
         flash('Masuk dulu sebagai admin!')
@@ -256,7 +256,7 @@ def manage_weapons():
     cursor.execute("SELECT * FROM weapons")
     weapon_data = cursor.fetchall()
     # Memastikan apakah yang membuka halaman adalah admin
-    if session['loggedin'] == True and session.get('role_id') == 0:
+    if session.get('loggedin') == True and session.get('role_id') == 0:
         return render_template('/admin/weapons/index.html', title="Manage Weapons", home_menu="hidden", sidenav="hidden", mobile_sidenav="hidden", weapon_data=weapon_data)
     else:
         flash('Masuk dulu sebagai admin!')
@@ -270,7 +270,7 @@ def manage_maps():
     cursor.execute("SELECT * FROM maps")
     map_data = cursor.fetchall()
     # Memastikan apakah yang membuka halaman adalah admin
-    if session['loggedin'] == True and session.get('role_id') == 0:
+    if session.get('loggedin') == True and session.get('role_id') == 0:
         return render_template('/admin/maps/index.html', title="Manage Maps", home_menu="hidden", sidenav="hidden", mobile_sidenav="hidden", map_data=map_data)
     else:
         flash('Masuk dulu sebagai admin!')
@@ -416,7 +416,7 @@ def add_agent():
         return redirect(url_for('manage_agents'))
     # Apabila requestnya GET, maka sistem akan menampilkan form tambah agent
     else:
-        if session['loggedin'] == True and session.get('role_id') == 0:
+        if session.get('loggedin') == True and session.get('role_id') == 0:
             return render_template('/admin/agents/add.html', title="Add Agent", home_menu="hidden", sidenav="hidden", mobile_sidenav="hidden")
         else:
             flash('Masuk dulu sebagai admin!')
@@ -501,7 +501,7 @@ def add_weapon():
         return redirect(url_for('manage_weapons'))
     # Apabila requestnya GET, maka sistem akan menampilkan form tambah weapon
     else:
-        if session['loggedin'] == True and session.get('role_id') == 0:
+        if session.get('loggedin') == True and session.get('role_id') == 0:
             return render_template('/admin/weapons/add.html', title="Add Weapon", home_menu="hidden", sidenav="hidden", mobile_sidenav="hidden")
         else:
             flash('Masuk dulu sebagai admin!')
@@ -592,7 +592,7 @@ def add_map():
         return redirect(url_for('manage_maps'))
     # Apabila requestnya GET, maka sistem akan menampilkan form tambah map
     else:
-        if session['loggedin'] == True and session.get('role_id') == 0:
+        if session.get('loggedin') == True and session.get('role_id') == 0:
             return render_template('/admin/maps/add.html', title="Add Map", home_menu="hidden", sidenav="hidden", mobile_sidenav="hidden")
         else:
             flash('Masuk dulu sebagai admin!')
@@ -733,7 +733,7 @@ def edit_agent(id):
     # Apabila requestnya GET, maka sistem akan menampilkan form edit agent
     else:
         cursor.close()
-        if session['loggedin'] == True and session.get('role_id') == 0:
+        if session.get('loggedin') == True and session.get('role_id') == 0:
             return render_template('/admin/agents/edit.html', title="Edit Agent", home_menu="hidden", sidenav="hidden", mobile_sidenav="hidden", agent_data=agent_data)
         else:
             flash('Masuk dulu sebagai admin!')
@@ -819,7 +819,7 @@ def edit_weapon(id):
     # Apabila requestnya GET, maka sistem akan menampilkan form edit weapon
     else:
         cursor.close()
-        if session['loggedin'] == True and session.get('role_id') == 0:
+        if session.get('loggedin') == True and session.get('role_id') == 0:
             return render_template('/admin/weapons/edit.html', title="Edit Weapon", home_menu="hidden", sidenav="hidden", mobile_sidenav="hidden", weapon_data=weapon_data)
         else:
             flash('Masuk dulu sebagai admin!')
@@ -910,7 +910,7 @@ def edit_map(id):
     # Apabila requestnya GET, maka sistem akan menampilkan form edit map
     else:
         cursor.close()
-        if session['loggedin'] == True and session.get('role_id') == 0:
+        if session.get('loggedin') == True and session.get('role_id') == 0:
             return render_template('/admin/maps/edit.html', title="Edit Map", home_menu="hidden", sidenav="hidden", mobile_sidenav="hidden", map_data=map_data)
         else:
             flash('Masuk dulu sebagai admin!')
@@ -922,7 +922,7 @@ def edit_map(id):
 def delete_agent(id):
     # Proses hapus agent
     # Wajib login sbg admin, jika belum login maka akan redirect ke halaman login
-    if session['loggedin'] == True and session.get('role_id') == 0:
+    if session.get('loggedin') == True and session.get('role_id') == 0:
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute("DELETE FROM agents WHERE id='%s'" % id)
         mysql.connection.commit()
@@ -938,7 +938,7 @@ def delete_agent(id):
 def delete_weapon(id):
     # Proses hapus weapon
     # Wajib login sbg admin, jika belum login maka akan redirect ke halaman login
-    if session['loggedin'] == True and session.get('role_id') == 0:
+    if session.get('loggedin') == True and session.get('role_id') == 0:
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute("DELETE FROM weapons WHERE id='%s'" % id)
         mysql.connection.commit()
@@ -954,7 +954,7 @@ def delete_weapon(id):
 def delete_map(id):
     # Proses hapus map
     # Wajib login sbg admin, jika belum login maka akan redirect ke halaman login
-    if session['loggedin'] == True and session.get('role_id') == 0:
+    if session.get('loggedin') == True and session.get('role_id') == 0:
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute("DELETE FROM maps WHERE id='%s'" % id)
         mysql.connection.commit()
@@ -970,7 +970,7 @@ def delete_map(id):
 # START Home Page
 @app.route('/')
 def index():
-    if session['loggedin'] == True:
+    if session.get('loggedin') == True:
         return render_template('/home/index.html', title="Home", home_active="text-red-500", homemenu_active="text-white")
     else:
         return redirect(url_for('login'))
@@ -984,7 +984,7 @@ def agents():
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     cursor.execute("SELECT * FROM agents")
     agent_data = cursor.fetchall()
-    if session['loggedin'] == True:
+    if session.get('loggedin') == True:
         return render_template('/home/agents/index.html', title="Agents", home_active="text-red-500", agents_active="text-white", agent_data=agent_data)
     # Apabila belum login akan redirect kehalaman login
     else:
@@ -998,7 +998,7 @@ def agent_details(id):
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     cursor.execute("SELECT * FROM agents WHERE id = %s", (id,))
     agent_data = cursor.fetchall()
-    if session['loggedin'] == True:
+    if session.get('loggedin') == True:
         return render_template('/home/agents/details.html', title="Agent Details", home_active="text-red-500", agents_active="text-white", agent_data=agent_data)
     # Apabila belum login akan redirect kehalaman login
     else:
@@ -1014,7 +1014,7 @@ def weapons():
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     cursor.execute("SELECT * FROM weapons")
     weapon_data = cursor.fetchall()
-    if session['loggedin'] == True:
+    if session.get('loggedin') == True:
         return render_template('/home/weapons/index.html', title="Weapons", home_active="text-red-500", weapons_active="text-white", weapon_data=weapon_data)
     # Apabila belum login akan redirect kehalaman login
     else:
@@ -1028,7 +1028,7 @@ def weapon_details(id):
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     cursor.execute("SELECT * FROM weapons WHERE id = %s", (id,))
     weapon_data = cursor.fetchall()
-    if session['loggedin'] == True:
+    if session.get('loggedin') == True:
         return render_template('/home/weapons/details.html', title="Weapon Details", home_active="text-red-500", weapons_active="text-white", weapon_data=weapon_data)
     # Apabila belum login akan redirect kehalaman login
     else:
@@ -1044,7 +1044,7 @@ def maps():
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     cursor.execute("SELECT * FROM maps")
     map_data = cursor.fetchall()
-    if session['loggedin'] == True:
+    if session.get('loggedin') == True:
         return render_template('/home/maps/index.html', title="Maps", home_active="text-red-500", maps_active="text-white", map_data=map_data)
     # Apabila belum login akan redirect kehalaman login
     else:
@@ -1058,7 +1058,7 @@ def map_details(id):
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     cursor.execute("SELECT * FROM maps WHERE id = %s", (id,))
     map_data = cursor.fetchall()
-    if session['loggedin'] == True:
+    if session.get('loggedin') == True:
         return render_template('/home/maps/details.html', title="Map Details", home_active="text-red-500", maps_active="text-white", map_data=map_data)
     # Apabila belum login akan redirect kehalaman login
     else:
@@ -1070,7 +1070,7 @@ def map_details(id):
 # START Account Page
 @app.route('/accounts')
 def accounts():
-    if session['loggedin'] == True:
+    if session.get('loggedin') == True:
         return render_template('/accounts/index.html', title="Accounts", accounts_active="text-red-500", home_menu="hidden")
     # Apabila belum login akan redirect kehalaman login
     else:
@@ -1112,7 +1112,7 @@ def change_password(id):
     # Apabila requestnya GET, maka sistem akan menampilkan form change password
     else:
         cursor.close()
-        if session['loggedin'] == True:
+        if session.get('loggedin') == True:
             return render_template('/accounts/change_password.html', title="Change Password", accounts_active="text-red-500", home_menu="hidden")
         else:
             flash('Login dulu!')
@@ -1122,7 +1122,7 @@ def change_password(id):
 @app.route('/contact_us', methods=['get', 'post'])
 def contact_us():
     # Harus login terlebih dahulu
-    if session["loggedin"] == True:
+    if session.get('loggedin') == True:
         if request.method == 'POST':
             # Mengambil data dari form
             subject = request.form['subject']
